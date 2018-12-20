@@ -4,8 +4,14 @@
     <title>This is My test page</title>
   </head>
   <body>
-    <h1>{%block heading%} {%end block%}</h1>
+    <h1>{%block heading%} {%endblock%}</h1>
     {%block body%}
-    {%end block%}
+    {%endblock%}
+<ul>
+    <li><a href="{{ url_for('listing')}}">See listing....</a></li>
+    <li><a href="{{ url_for('more')}}">Go to more details</a></li>
+    <li><a href="{{ url_for('index')}}">New year page</a></li>
+    <li><a href="{{ url_for('form')}}">The Hello you page</a></li>
+</ul>
   </body>
 </html>

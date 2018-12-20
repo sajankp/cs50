@@ -1,4 +1,4 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,request
 import datetime
 
 app=Flask(__name__)
@@ -11,13 +11,22 @@ def index():
     return render_template("newyear.html",new_year=new_year,days=delta.days)
 
 @app.route("/sajan")
-def hello(name=' sajan'):
+def hello_1(name=' sajan'):
     return render_template("index.html",name=name)
 
 @app.route("/lists")
 def listing():
     listing=['a','b','c','d','e']
     return render_template("list.html",listing=listing)
+
+@app.route("/form")
+def form():
+    return render_template("form.html")
+
+@app.route("/hello",methods=["POST"])
+def hello():
+    name = request.form.get("name")
+    return render_template("hello.html", name=name)
 
 @app.route("/more")
 def more():
